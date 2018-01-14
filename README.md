@@ -1,1 +1,1 @@
-# Email-Trigger-PhpScript
+# Email Trigger PhpScript
