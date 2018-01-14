@@ -6,27 +6,27 @@ function acentuacao_assunto($string){ return '=?UTF-8?B?'.base64_encode($string)
 //https://vasconcellossolutions.com
 //https://vasconcellos.site
 
-$destinatario= "contact@corporation.com";
+$emailrecipient = "contact@corporation.com";
 
-$remetente = $_POST['email'];
-$sender = $destinatario;
+$senderemail = $_POST['email'];
+$sender = $emailrecipient;
 $name = $_POST['name'];
 $subject = $_POST['subject'];
-$text = $_POST['texto'];
+$text = $_POST['emailtext'];
 $telephone = $_POST['telephone'];
 $subject = $subject." - ".date("d/m/Y H:i");
 
-$textofinal = 
-"E-mail: ".$remetente."
+$finaltext = 
+"E-mail: ".$senderemail."
 Nome: ".$name."\n
 Assunto: ".$subject."
 Telefone: ".$telephone."\n
 Mensagem: \n".$text."\n\n
 Enviado: ".date("d/m/Y H:i")."";
 
-$headers = "From: $remetente\r\n";
-$headers .= "Reply-To: $remetente\r\n";
-$envio = mail($destinatario,acentuacao_assunto($subject), $textofinal, $headers);
+$headers = "From: $senderemail\r\n";
+$headers .= "Reply-To: $senderemail\r\n";
+$envio = mail($emailrecipient,acentuacao_assunto($subject), $finaltext, $headers);
 
 if($envio) {
         echo '<script> alert("Formulário enviado com sucesso!");
